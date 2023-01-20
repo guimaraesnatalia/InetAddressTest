@@ -3,8 +3,8 @@ package br.ufs.dcomp.InetAddressTest;
 import java.net.*;
 
 /**
- * Hello world!
- *
+ * $ mvn compile
+ * $ java -cp target/classes br.ufs.dcomp.InetAddressTest.App 
  */
 public class App 
 {
@@ -12,10 +12,12 @@ public class App
     {
         try{
             
-            String name = "www.ufs.br";
-            InetAddress address = InetAddress.getByName(name); 
+            String name = "www.google.com";
+            InetAddress[] address = InetAddress.getAllByName(name); 
             System.out.println( "Name:      "+ name);
-            System.out.println( "Address:   "+ address.getHostAddress());
+            for (int i=0 ; i<address.length; i++){
+                System.out.println( "Address:   "+ address[i].getHostAddress());
+            }
         } catch (UnknownHostException e){
             System.out.println(e.getMessage());
         }                
